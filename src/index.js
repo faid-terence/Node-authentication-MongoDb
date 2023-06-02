@@ -2,12 +2,26 @@ require("dotenv").config();
 const mongoose = require('mongoose');
 const express = require('express');
 
+
 // Create Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Database URL
 const DATABASE = process.env.DATABASE_URL;
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.get('/', (req, res) => {
+  res.send('Welcome to Terence Faid JABO!');
+});
+// Import Routes
+const usersRoutes = require('./routes/authRoutes')
+
+// Use Routes
+app.use('/api/users', usersRoutes);
 
 const connectToDB = async () => {
     try {
