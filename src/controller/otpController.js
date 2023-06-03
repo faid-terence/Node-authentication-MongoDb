@@ -14,7 +14,7 @@ const sendOTP = async ({ email, subject, message, duration = 1 }) => {
     // Send email
     const mailOptions = {
       from: process.env.EMAIL,
-      to: "terencefaid@gmail.com",
+      to: email,
       subject: "OTP Verification Code",
       html: `<p>${message}</p><p style="color: tomato; font-size: 25px; letter-spacing: 2px;"><b>${pin}</b></p><p>This code expires in <b>${duration} hours</b>.</p>`,
     };
