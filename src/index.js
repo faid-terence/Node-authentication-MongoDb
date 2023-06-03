@@ -19,9 +19,11 @@ app.get('/', (req, res) => {
 });
 // Import Routes
 const usersRoutes = require('./routes/authRoutes')
+const otpRoutes = require('./routes/otpRoutes')
 
 // Use Routes
 app.use('/api/users', usersRoutes);
+app.use('/otp', otpRoutes);
 
 const connectToDB = async () => {
     try {
